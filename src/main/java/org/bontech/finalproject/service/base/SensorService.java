@@ -20,5 +20,4 @@ public interface SensorService {
 
     Sensor updateSensor(UpdateSensor updateSensor);
 
-
 }

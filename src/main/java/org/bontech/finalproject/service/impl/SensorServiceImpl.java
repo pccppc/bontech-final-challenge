@@ -4,6 +4,9 @@ import org.bontech.finalproject.model.ChangesOfSilo;
 import org.bontech.finalproject.model.SenseHistory;
 import org.bontech.finalproject.model.Sensor;
 import org.bontech.finalproject.model.Silo;
+import org.bontech.finalproject.model.dto.CreateSensor;
+import org.bontech.finalproject.model.dto.DeleteSensor;
+import org.bontech.finalproject.model.dto.UpdateSensor;
 import org.bontech.finalproject.repositories.ChangeOfSiloRepository;
 import org.bontech.finalproject.repositories.SenseHistoryRepository;
 import org.bontech.finalproject.repositories.SensorRepository;
@@ -52,12 +55,41 @@ public class SensorServiceImpl implements SensorService {
         }throw new RuntimeException("silo not found");
     }
 
-
     public Long getSensorResult(Sensor sensor){
         //using http request or socket for connect to sensor with{id} and get info
         //for now I use Random Long
         sensor.setAmount(new Random().nextLong());
         return sensorRepository.save(sensor).getAmount();
     }
+
+    @Override
+    public Sensor createSensor(CreateSensor createSensor) {
+        Optional<Silo> byId = siloRepository.findById(createSensor.getSiloId());
+        if (byId.isPresent()){
+            Silo silo = byId.get();
+            Sensor sensor = Sensor.builder().name(createSensor.getSensorName()).silo(silo).build();
+            return sensorRepository.save(sensor);
+        }else throw new RuntimeException("silo not found");
+    }
+
+    @Override
+    public void deleteSensor(DeleteSensor deleteSensor) {
+        if (sensorRepository.existsById(deleteSensor.getSensorId())){
+            sensorRepository.deleteById(deleteSensor.getSensorId());
+        }else throw new RuntimeException("sensor not found");
+    }
+
+    @Override
+    public Sensor updateSensor(UpdateSensor updateSensor) {
+        Optional<Sensor> byId = sensorRepository.findById(updateSensor.getSensorId());
+        if (byId.isPresent()){
+            Sensor sensor = byId.get();
+            sensor.setName(updateSensor.getName());
+            return sensorRepository.save(sensor);
+        }else throw new RuntimeException("sensor not found");
+    }
+
+
+
 
 }

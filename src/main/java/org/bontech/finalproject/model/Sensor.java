@@ -19,8 +19,6 @@ public class Sensor {
 
     private String name;
 
-    private Long amount;
-
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Silo.class, mappedBy = "sensor")
     private Silo silo;
 

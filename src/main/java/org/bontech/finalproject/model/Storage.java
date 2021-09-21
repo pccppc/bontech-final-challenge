@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Warehouse {
+public class Storage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

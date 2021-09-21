@@ -17,7 +17,7 @@ public class ScheduledSense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
-    private LocalDate duration;
+    private Integer duration;
 
     @OneToOne(targetEntity = Sensor.class, fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "sensor_id")

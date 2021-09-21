@@ -2,6 +2,7 @@ package org.bontech.finalproject.model;
 
 
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,5 +24,6 @@ public class ChangesOfSilo {
 
     private Long amount;
 
+    @LastModifiedDate
     private Date data;
 }

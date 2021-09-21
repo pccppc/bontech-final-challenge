@@ -24,7 +24,7 @@ public class Sensor {
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Silo.class, mappedBy = "sensor")
     private Silo silo;
 
-    @OneToMany(targetEntity = IncreaseOrDecreaseFromSilo.class,fetch = FetchType.LAZY,mappedBy = "sensor")
-    List<IncreaseOrDecreaseFromSilo> history;
+    @OneToMany(targetEntity = SenseHistory.class,fetch = FetchType.LAZY,mappedBy = "sensor")
+    List<SenseHistory> history;
 
 }

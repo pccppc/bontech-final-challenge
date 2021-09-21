@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-public class IncreaseOrDecreaseFromSilo {
+public class SenseHistory {
     @Id
     private Long id;
 

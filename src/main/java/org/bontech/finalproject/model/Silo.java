@@ -3,6 +3,7 @@ package org.bontech.finalproject.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +29,8 @@ public class Silo {
 
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Sensor.class)
     private Sensor sensor;
+
+    @OneToMany(targetEntity = ChangesOfSilo.class, fetch = FetchType.LAZY , mappedBy = "silo")
+    List<ChangesOfSilo> changesHistory;
 
 }

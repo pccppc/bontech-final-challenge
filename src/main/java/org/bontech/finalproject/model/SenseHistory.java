@@ -1,12 +1,10 @@
 package org.bontech.finalproject.model;
 
 import lombok.*;
-import org.bontech.finalproject.model.Sensor;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +22,6 @@ public class SenseHistory {
     @JoinColumn(columnDefinition = "sensor_id")
     private Sensor sensor;
 
-    @UpdateTimestamp
-    private LocalDate dateTime;
+    @LastModifiedDate
+    private Date date;
 }

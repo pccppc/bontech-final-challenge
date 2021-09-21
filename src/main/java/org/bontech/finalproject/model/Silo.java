@@ -24,7 +24,7 @@ public class Silo {
     private Long currentWeight;
 
     @ManyToOne(targetEntity = Storage.class,fetch = FetchType.LAZY)
-    @JoinColumn(columnDefinition = "warehouse_id")
+    @JoinColumn(columnDefinition = "storage_id")
     private Storage storage;
 
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Sensor.class)

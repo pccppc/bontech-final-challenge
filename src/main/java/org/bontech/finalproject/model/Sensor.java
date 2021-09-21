@@ -11,13 +11,15 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Sensor {
+public class Sensor{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+
+    private Long amount; // last estimated amount
 
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Silo.class, mappedBy = "sensor")
     private Silo silo;

@@ -19,7 +19,7 @@ public class Storage {
 
     private String name;
 
-    @OneToMany(targetEntity = Silo.class, fetch = FetchType.LAZY, mappedBy = "warehouse")
+    @OneToMany(targetEntity = Silo.class, fetch = FetchType.LAZY, mappedBy = "storage")
     private List<Silo> siloList;
 
 }

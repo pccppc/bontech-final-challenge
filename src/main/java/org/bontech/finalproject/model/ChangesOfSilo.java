@@ -22,7 +22,7 @@ public class ChangesOfSilo {
     private Long amount;
 
     @LastModifiedDate
-    private Date data;
+    private Date date;
 
     @ManyToOne(targetEntity = Silo.class, fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "silo_id")

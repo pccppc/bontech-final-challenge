@@ -24,15 +24,13 @@ public interface StorageService {
 	/**
 	 * find a storage and update that
 	 * @param updateStorage include id for search and name for update
-	 * @return Storage 
 	 */
 
-	Storage updateStorage(UpdateStorage updateStorage);
+	void updateStorage(UpdateStorage updateStorage);
 
 	/**
 	 * find a storage
 	 * @param storageId for search into database
-	 * @return Storage
 	 */
 
 	Storage	findStorage(Long storageId);

@@ -53,5 +53,7 @@ public interface SiloService {
 
 	Silo addOrHarvest(Long siloId);
 
+	Long estimateCurrentWeight(Long siloId);
+
 
 }

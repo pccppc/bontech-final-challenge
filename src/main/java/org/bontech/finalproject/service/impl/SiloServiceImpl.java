@@ -76,4 +76,14 @@ public class SiloServiceImpl implements SiloService{
 		}else throw new RuntimeException("silo not found");
 	}
 
+	@Override
+	public Long estimateCurrentWeight(Long siloId) {
+		Optional<Silo> byId = siloRepository.findById(siloId);
+		if (byId.isPresent()){
+			Silo silo = byId.get();
+			Sensor sensor = silo.getSensor();
+			return sensorService.estimateCurrentWeight(sensor.getId(),silo);
+		}throw new RuntimeException("silo not found");
+	}
+
 }

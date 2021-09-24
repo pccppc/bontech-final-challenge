@@ -30,7 +30,7 @@ public class StorageController {
     public ResponseEntity<Object> createStorage(@RequestBody CreateStorage s){
         Storage storage = service.creteStorage(s);
         return ResponseEntity.ok(new SuccessBody<>(Map.of("message","storage was created successfully",
-                "data",s)));
+                "data",storage)));
     }
 
     @DeleteMapping(path = "/delete")

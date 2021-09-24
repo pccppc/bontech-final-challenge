@@ -1,5 +1,6 @@
 package org.bontech.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Storage {
 
     private String name;
 
+    @JsonIgnore
     @OneToMany(targetEntity = Silo.class, fetch = FetchType.LAZY, mappedBy = "storage")
     private List<Silo> siloList;
 

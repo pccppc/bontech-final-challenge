@@ -12,8 +12,9 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class SenseHistory {
+public class SenseHistory extends AuditModel{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Long amount;
@@ -22,6 +23,4 @@ public class SenseHistory {
     @JoinColumn(columnDefinition = "sensor_id")
     private Sensor sensor;
 
-    @LastModifiedDate
-    private Date date;
 }

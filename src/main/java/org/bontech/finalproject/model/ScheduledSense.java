@@ -3,7 +3,7 @@ package org.bontech.finalproject.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class ScheduledSense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
-    private Integer duration;
+    private LocalTime period;
 
     @OneToOne(targetEntity = Sensor.class, fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "sensor_id")

@@ -13,16 +13,13 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class ChangesOfSilo {
+public class ChangesOfSilo extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     private Long amount;
-
-    @LastModifiedDate
-    private Date date;
 
     @ManyToOne(targetEntity = Silo.class, fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "silo_id")

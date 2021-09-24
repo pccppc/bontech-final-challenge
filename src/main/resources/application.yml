@@ -1,1 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bontech_challenge
+    password: database_password
+    username: database_username
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operations-sorter: alpha

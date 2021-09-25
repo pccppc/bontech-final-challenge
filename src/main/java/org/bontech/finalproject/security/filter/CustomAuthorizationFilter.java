@@ -37,7 +37,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) {
         try {
-            if (!httpServletRequest.getServletPath().equals("/login")) {
+            if (httpServletRequest.getServletPath().startsWith("/silo") ||
+                    httpServletRequest.getServletPath().startsWith("/storage")) {
                 String accessToken = httpServletRequest.getHeader("Authentication");
                 if (accessToken != null) {
                     String username = jwtUtil.extractUserName(accessToken);
